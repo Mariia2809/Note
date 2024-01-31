@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="js/vue.js"></script>
+    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Notebook</title>
+</head>
+<body>
+<header>
+    <h1>Note</h1>
+    <button>Add a new note</button>
+</header>
+
+<div id="app">
+    <form>
+        <input type="text" v-model="cardTitle" placeholder="Enter the title of the card" required>
+        <button type="submit">Add</button>
+    </form>
+    <div class="columns">
+        <div class="column" id="first-column">
+            <h2>New notes</h2>
+            <div v-for="card in first-column" :key="card.id" class="card">
+                <ul>
+                    <li v-for="item in card.items" :key="item.id">
+                        <input type="checkbox" v-model="item.completed">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="column" id="second-column">
+            <h2>Half completed</h2>
+            <div v-for="card in second-column" :key="card.id" class="card">
+
+                <ul>
+                    <li v-for="item in card.items" :key="item.id">
+                        <input type="checkbox" v-model="item.completed">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="column" id="third-column">
+            <h2>Done</h2>
+            <div v-for="card in third-column" :key="card.id" class="card">
+
+                <ul>
+                    <li v-for="item in card.items" :key="item.id">
+                        <input type="checkbox" v-model="item.completed">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
