@@ -25,11 +25,6 @@ Vue.component('columns', {
     },
     methods: {
         addCard(column, customTitle) {
-            const totalCards = this.newColumn.length + this.inProgressColumn.length + this.completedColumn.length;
-            if (totalCards >= this.maxCards.newColumn + this.maxCards.inProgressColumn + this.maxCards.completedColumn) {
-                alert(`Достигнуто максимальное количество карточек во всех столбцах.`);
-                return;
-            }
             if (this[column].length >= this.maxCards[column]) {
                 alert(`Достигнуто максимальное количество карточек в столбце "${this.getColumnTitle(column)}".`);
                 return;
@@ -271,7 +266,10 @@ new Vue({
                 this.inProgressColumn = data.inProgressColumn || [];
                 this.completedColumn = data.completedColumn || [];
                 // Установка состояния чекбоксов
-              
+                this.newColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
+                this.inProgressColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
+                this.completedColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
+
             }
         },
     }
