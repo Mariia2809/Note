@@ -269,7 +269,6 @@ new Vue({
                 this.newColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
                 this.inProgressColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
                 this.completedColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
-
             }
         },
     }
