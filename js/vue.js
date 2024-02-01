@@ -11837,5 +11837,4 @@
     Vue.effect = effect;
 
     return Vue;
-
 }));
