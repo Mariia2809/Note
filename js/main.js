@@ -127,6 +127,7 @@ Vue.component('column', {
 <!--      Свойство карточки:-->
        <card v-for="(card, index) in cards" :key="index" :card="card" @remove-card="removeCard(index)" @save-local-storage="saveToLocalStorage"  @move-card-to-in-progress="moveCardToInProgress" @move-card-to-completed="moveCardToCompleted"></card>
       
+      </div>   
       </div>
         `,
 
@@ -270,9 +271,7 @@ new Vue({
                 this.inProgressColumn = data.inProgressColumn || [];
                 this.completedColumn = data.completedColumn || [];
                 // Установка состояния чекбоксов
-                this.newColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
-                this.inProgressColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
-                this.completedColumn.forEach(card => card.items.forEach(item => item.completed = !!item.completed));
+              
             }
         },
     }
