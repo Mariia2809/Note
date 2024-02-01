@@ -1,12 +1,3 @@
-Vue.component('todo-item', {
-    template: '\
-<li>\
-{{ title }}\
-<button v-on:click="$emit(\'remove\')">Delete</button>\
-</li>\
-',
-    props: ['title']
-});
 
 Vue.component('columns', {
     template: `
@@ -176,13 +167,13 @@ Vue.component('card', {
           <input type="checkbox" v-model="item.completed" @change="saveToLocalStorage" :disabled="card.status === 'Done' || isFirstColumnLocked">
           <input type="text" v-model="item.text" @input="saveToLocalStorage" :disabled="!item.editing || card.status === 'Done' || (card.status === 'В процессе' && isFirstColumnLocked)">
 <!--          <button @click="saveItem(index)" v-if="item.editing && card.status !== 'Выполненные' && !isFirstColumnLocked">Сохранить</button>-->
-          <button class="btn" @click="editItem(index)" v-else-if="!item.editing && card.status !== 'Done' && !isFirstColumnLocked">Редактировать</button>
+<!--          <button class="btn" @click="editItem(index)" v-else-if="!item.editing && card.status !== 'Done' && !isFirstColumnLocked">Редактировать</button>-->
           <button class="btn" @click="removeItem(index)" v-if="card.items.length > 3 && !isFirstColumnLocked && card.status !== 'Done'">Удалить</button>
         </li>
 
-        <li v-if="card.items.length < 5 && card.status !== 'Done' && !isFirstColumnLocked">
-          <button class="btn" @click="addItem">Добавить пункт</button>
-        </li>
+<!--        <li v-if="card.items.length < 5 && card.status !== 'Done' && !isFirstColumnLocked">-->
+<!--          <button class="btn" @click="addItem">Добавить пункт</button>-->
+<!--        </li>-->
       </ul> 
       <button class="btn" v-if="card.status !== 'Done' && !isFirstColumnLocked" @click="removeCard">Удалить заметку</button>
       <p v-if="card.status === 'Done'">Дата завершения: {{ card.completionDate }}</p>
