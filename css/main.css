@@ -1,3 +1,30 @@
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.libre-baskerville-regular-italic {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.libre-baskerville-bold {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.single-day-regular {
+    font-family: "Single Day", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Теперь можно использовать шрифт */
+body {
+    font-family: "Libre Baskerville", "Arial", sans-serif;
+}
 .columns {
     display: flex;
     justify-content: space-between;
@@ -10,6 +37,8 @@
     margin-top: 20px;
     border-radius: 20px;
     background-color: rgba(241, 205, 250);
+    box-shadow: 0 0 25px white;
+    background: linear-gradient(#C8A2C8, white);
 }
 
 .column > h2 {
@@ -29,6 +58,7 @@
     background-image: url("/img/photo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 0 15px white;
 }
 
 .completed {
@@ -56,4 +86,13 @@ body{
     -o-box-shadow: 0 0 12px #6633FF;
     -ms-box-shadow: 0 0 12px #6633FF;
     -webkit-box-shadow: 0 0 12px #6633FF;
+}
+
+.cardText{
+    border: 2px solid white ;
+    background-color: rgba(252, 252, 252, 0.7 );
+    box-shadow: 0 0 12px  rgba(209, 71, 255);
+    margin-top: 4px;
+    border-radius: 8px;
+
 }

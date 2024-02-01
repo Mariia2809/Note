@@ -116,7 +116,7 @@ Vue.component('column', {
         
       <h2>{{ title }}</h2>
       <form action="" v-if="title === 'New'">
-        <input type="text" v-model="customTitle">
+        <input class="cardText" type="text" v-model="customTitle">
         <button class="btn" v-if="title === 'New'" @click="addCardWithCustomTitle">Добавить заметку</button>
       </form>
 <!--      Свойство карточки:-->
@@ -159,9 +159,9 @@ Vue.component('card', {
       <div class="card">
       <h3>{{ card.title }}</h3>
       <ul>
-        <li v-for="(item, index) in card.items" :key="index">
-          <input type="checkbox" v-model="item.completed" @change="saveToLocalStorage" :disabled="card.status === 'Done' || isFirstColumnLocked">
-          <input type="text" v-model="item.text" @input="saveToLocalStorage" :disabled="!item.editing || card.status === 'Done' || (card.status === 'В процессе' && isFirstColumnLocked)">
+        <li   v-for="(item, index) in card.items" :key="index">
+          <input class="cardText"  type="checkbox" v-model="item.completed" @change="saveToLocalStorage" :disabled="card.status === 'Done' || isFirstColumnLocked">
+          <input class="cardText" type="text" v-model="item.text" @input="saveToLocalStorage" :disabled="!item.editing || card.status === 'Done' || (card.status === 'В процессе' && isFirstColumnLocked)">
 <!--          <button @click="saveItem(index)" v-if="item.editing && card.status !== 'Выполненные' && !isFirstColumnLocked">Сохранить</button>-->
 <!--          <button class="btn" @click="editItem(index)" v-else-if="!item.editing && card.status !== 'Done' && !isFirstColumnLocked">Редактировать</button>-->
           <button class="btn" @click="removeItem(index)" v-if="card.items.length > 3 && !isFirstColumnLocked && card.status !== 'Done'">Удалить</button>
