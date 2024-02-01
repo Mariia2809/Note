@@ -1,4 +1,12 @@
-
+Vue.component('todo-item', {
+    template: '\
+<li>\
+{{ title }}\
+<button v-on:click="$emit(\'remove\')">Delete</button>\
+</li>\
+',
+    props: ['title']
+});
 
 Vue.component('columns', {
     template: `
@@ -121,7 +129,10 @@ Vue.component('column', {
         <div class="column">
         
       <h2>{{ title }}</h2>
-     
+      <form action="" v-if="title === 'New'">
+        <input type="text" v-model="customTitle">
+        <button class="btn" v-if="title === 'New'" @click="addCardWithCustomTitle">Добавить заметку</button>
+      </form>
 <!--      Свойство карточки:-->
        <card v-for="(card, index) in cards" :key="index" :card="card" @remove-card="removeCard(index)" @save-local-storage="saveToLocalStorage"  @move-card-to-in-progress="moveCardToInProgress" @move-card-to-completed="moveCardToCompleted"></card>
       
